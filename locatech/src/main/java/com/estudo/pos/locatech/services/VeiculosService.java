@@ -10,10 +10,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
+
 public class VeiculosService {
 
     private final VeiculoRepository veiculoRepository;
+
+    public VeiculosService(VeiculoRepository veiculoRepository) {
+        this.veiculoRepository = veiculoRepository;
+    }
 
     public List<Veiculo> findAllVeiculo(int size, int page) {
         int offset = (page - 1) * size;
