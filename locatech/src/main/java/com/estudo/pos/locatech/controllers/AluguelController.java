@@ -5,6 +5,8 @@ import com.estudo.pos.locatech.entities.Aluguel;
 import com.estudo.pos.locatech.services.AluguelService;
 import java.util.List;
 import java.util.Optional;
+
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +39,7 @@ public class AluguelController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> savePessoa(@RequestBody AluguelRequestDTO aluguel) {
+    public ResponseEntity<Void> savePessoa(@RequestBody @Valid AluguelRequestDTO aluguel) {
         log.info("Salvando Pessoa {}", aluguel);
         this.AluguelsService.saveAluguel(aluguel);
         return ResponseEntity.status(201).build();
