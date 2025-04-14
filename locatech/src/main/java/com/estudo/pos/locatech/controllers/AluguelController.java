@@ -1,5 +1,6 @@
 package com.estudo.pos.locatech.controllers;
 
+import com.estudo.pos.locatech.dto.AluguelRequestDTO;
 import com.estudo.pos.locatech.entities.Aluguel;
 import com.estudo.pos.locatech.services.AluguelService;
 import java.util.List;
@@ -36,14 +37,14 @@ public class AluguelController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> savePessoa(@RequestBody Aluguel aluguel) {
+    public ResponseEntity<Void> savePessoa(@RequestBody AluguelRequestDTO aluguel) {
         log.info("Salvando Pessoa {}", aluguel);
         this.AluguelsService.saveAluguel(aluguel);
         return ResponseEntity.status(201).build();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updatePessoa(@RequestBody Aluguel aluguel, @PathVariable Long id) {
+    public ResponseEntity<Void> updatePessoa(@RequestBody AluguelRequestDTO aluguel, @PathVariable Long id) {
         log.info("Atualizando Pessoa {}", aluguel);
         this.AluguelsService.updateAluguel(aluguel, id);
         return ResponseEntity.ok().build();
