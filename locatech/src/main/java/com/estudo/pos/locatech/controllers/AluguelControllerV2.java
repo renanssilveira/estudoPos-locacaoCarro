@@ -3,22 +3,21 @@ package com.estudo.pos.locatech.controllers;
 import com.estudo.pos.locatech.dto.AluguelRequestDTO;
 import com.estudo.pos.locatech.entities.Aluguel;
 import com.estudo.pos.locatech.services.AluguelService;
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.Optional;
-
-import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/v1/alugueis")
+@RequestMapping("/v2/alugueis")
 @Slf4j
-public class AluguelController {
+public class AluguelControllerV2 {
 
     private final AluguelService AluguelsService;
 
-    public AluguelController(AluguelService aluguelService) {
+    public AluguelControllerV2(AluguelService aluguelService) {
         this.AluguelsService = aluguelService;
     }
 

@@ -4,6 +4,8 @@ import com.estudo.pos.locatech.entities.Pessoa;
 import com.estudo.pos.locatech.services.PessoaService;
 import java.util.List;
 import java.util.Optional;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Slf4j
 @RequestMapping("/pessoas")
+@Tag(name = "Pessoas", description = "Gerenciamento de Pessoas")
 public class PessoaController {
 
     private final PessoaService PessoasService;

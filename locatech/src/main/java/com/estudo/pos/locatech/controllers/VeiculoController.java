@@ -4,6 +4,9 @@ import com.estudo.pos.locatech.entities.Veiculo;
 import com.estudo.pos.locatech.services.VeiculosService;
 import java.util.List;
 import java.util.Optional;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @Slf4j
 @RequestMapping("/veiculos")
+@Tag(name = "Veiculos", description = "Gerenciamento de Veiculos")
 public class VeiculoController {
 
 
@@ -19,6 +23,10 @@ public class VeiculoController {
     public VeiculoController(VeiculosService veiculosService) {
         this.veiculosService = veiculosService;
     }
+
+    @Operation(
+            description = "Buscar todos os veiculos",
+            summary = "Buscar todos os veiculos")
 
     @GetMapping()
     public ResponseEntity<List<Veiculo>> findAllVeiculos(
